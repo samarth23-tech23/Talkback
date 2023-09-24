@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".LoginActivity">
+
+    <EditText
+        android:id="@+id/editName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Name"
+        android:contentDescription="Name" />
+
+    <EditText
+        android:id="@+id/editUDID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editName"
+        android:layout_marginTop="16dp"
+        android:hint="Enter UDID (alphanumeric)"
+        android:contentDescription="UDID" />
+
+    <EditText
+        android:id="@+id/editContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editUDID"
+        android:layout_marginTop="16dp"
+        android:hint="Enter Contact"
+        android:contentDescription="Contact" />
+
+    <EditText
+        android:id="@+id/editCaretakerContact"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editContact"
+        android:layout_marginTop="16dp"
+        android:hint="Enter Caretaker's Contact"
+        android:contentDescription="Caretaker's Contact" />
+
+    <Button
+        android:id="@+id/displayButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editCaretakerContact"
+        android:layout_marginTop="24dp"
+        android:text="Display Entered Values"
+        android:contentDescription="Display Entered Values" />
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/displayButton"
+        android:layout_marginTop="16dp"
+        android:text=""
+        android:contentDescription="Entered Values Display" />
+
+</RelativeLayout>
