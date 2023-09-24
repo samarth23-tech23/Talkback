@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity(), OnInitListener {
             val textToRead = editText.text.toString().trim()
             if (textToRead.isNotEmpty()) {
                 textToSpeech.speak(textToRead, TextToSpeech.QUEUE_FLUSH, null, null)
+
             }
         }
     }
