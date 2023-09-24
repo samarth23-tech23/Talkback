@@ -1,5 +1,6 @@
 package com.example.talkback
 
+import android.content.Intent
 import android.os.Bundle
 
 import android.speech.tts.TextToSpeech
@@ -19,6 +20,7 @@ class RegisterActivity : AppCompatActivity(), OnInitListener {
     private lateinit var editCaretakerContact: EditText
     private lateinit var displayButton: Button
     private lateinit var resultTextView: TextView
+    private lateinit var textviewclickable: TextView
     private lateinit var textToSpeech: TextToSpeech
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +34,13 @@ class RegisterActivity : AppCompatActivity(), OnInitListener {
         displayButton = findViewById(R.id.displayButton)
         resultTextView = findViewById(R.id.resultTextView)
 
+        textviewclickable = findViewById(R.id.textview_clickable)
+
+        textviewclickable.setOnClickListener(View.OnClickListener {
+            // Handle the click event here
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        })
         // Initialize TextToSpeech engine
         textToSpeech = TextToSpeech(this, this)
 
@@ -56,6 +65,7 @@ class RegisterActivity : AppCompatActivity(), OnInitListener {
                 textToSpeech.speak(resultText, TextToSpeech.QUEUE_FLUSH, null, null)
             }
         })
+
     }
 
     override fun onInit(status: Int) {
