@@ -78,12 +78,9 @@ class RegisterActivity : AppCompatActivity(), OnInitListener {
                 textToSpeech.language = Locale.getDefault()
             } else {
                 Toast.makeText(this, "Text-to-speech initialization failed.", Toast.LENGTH_SHORT).show()
-                Toast.makeText(this, "Text-to-speech initialization failed.", Toast.LENGTH_SHORT)
-                    .show()
             }
         }
     }
-
 
     private fun sendOTP(phoneNumber: String) {
 //        val formattedPhoneNumber = "+91$phoneNumber"
