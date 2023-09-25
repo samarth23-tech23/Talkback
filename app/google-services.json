@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "85790830532",
+    "project_id": "udyog-saarthi-fa53e",
+    "storage_bucket": "udyog-saarthi-fa53e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:85790830532:android:9cd44c8978995f0a193e91",
+        "android_client_info": {
+          "package_name": "com.example.talkback"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPs4_g4iLMddKmZYppTFUO7E6_4HtLCeU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
