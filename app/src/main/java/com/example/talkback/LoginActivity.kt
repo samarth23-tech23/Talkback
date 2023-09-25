@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity(), OnInitListener {
             startActivity(intent)
 
             // Speak a welcome message
-            val welcomeMessage = "Welcome to the app. Please log in to continue."
+            val welcomeMessage = "Welcome to the app."
             textToSpeech.speak(welcomeMessage, TextToSpeech.QUEUE_FLUSH, null, null)
         }
     }
