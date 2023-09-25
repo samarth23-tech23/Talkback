@@ -1,5 +1,4 @@
 package com.example.talkback
-
 import android.content.Intent
 import android.widget.EditText
 import android.widget.TextView
@@ -18,15 +17,16 @@ import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.google.android.material.textview.MaterialTextView
 import java.util.*
-
 class RegisterActivity : AppCompatActivity(), OnInitListener {
 
     private lateinit var textToSpeech: TextToSpeech
     private lateinit var editName: EditText
-    private lateinit var editContact: EditText
-    private lateinit var editTextOTP: EditText
+    private lateinit var editContact: TextInputEditText
+    private lateinit var editTextOTP: TextView
     private lateinit var buttonSendOTP: Button
     private lateinit var buttonVerifyOTP: Button
     private var verificationId: String? = null
@@ -60,13 +60,11 @@ class RegisterActivity : AppCompatActivity(), OnInitListener {
         textToSpeech = TextToSpeech(this, this)
 
         textviewclickable = findViewById(R.id.textview_clickable)
-
         textviewclickable.setOnClickListener(View.OnClickListener {
             // Handle the click event here
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         })
-
         editName = findViewById(R.id.editName)
         textInputLayout1 = findViewById(R.id.textInputLayout1)
         textInputLayout1.setEndIconOnClickListener {
@@ -79,6 +77,7 @@ class RegisterActivity : AppCompatActivity(), OnInitListener {
             if (status != TextToSpeech.ERROR) {
                 textToSpeech.language = Locale.getDefault()
             } else {
+                Toast.makeText(this, "Text-to-speech initialization failed.", Toast.LENGTH_SHORT).show()
                 Toast.makeText(this, "Text-to-speech initialization failed.", Toast.LENGTH_SHORT)
                     .show()
             }
@@ -115,7 +114,7 @@ class RegisterActivity : AppCompatActivity(), OnInitListener {
                     editTextOTP.visibility = View.VISIBLE
                 }
             })
-        }
+    }
 
     private fun verifyOTP(otp: String) {
         val credential = PhoneAuthProvider.getCredential(verificationId ?: "", otp)
@@ -139,7 +138,6 @@ class RegisterActivity : AppCompatActivity(), OnInitListener {
     private fun readAloud(text: String) {
         textToSpeech.speak(text, TextToSpeech.QUEUE_FLUSH, null, null)
     }
-
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS) {
             val result = textToSpeech.setLanguage(Locale.US) // Set the desired language
@@ -150,7 +148,6 @@ class RegisterActivity : AppCompatActivity(), OnInitListener {
             Toast.makeText(this, "TextToSpeech initialization failed.", Toast.LENGTH_SHORT).show()
         }
     }
-
     override fun onDestroy() {
         if (textToSpeech.isSpeaking) {
             textToSpeech.stop()
